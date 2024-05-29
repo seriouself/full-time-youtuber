@@ -1,0 +1,62 @@
+Welcome to the full-time YouTuber calculation script. Created by @DrWaku. This
+script lets you calculate the future growth trajectory of a YouTube channel
+(perhaps yours?), incorporate secondary income sources, and calculate when that
+YouTuber can go full time.
+
+Example of a channel which is now 3000 subs, whose creator needs $5000 per
+month to cover expenses. This individual is 38 months away from being able to
+go full-time. If they keep a job paying $5000 for the next 18 months, they will
+need $20,000 in savings to make the transition.
+
+$ python full-time.py $(cat example.1) --verbose 1
+Grew from 1000 subs on 2023-05-01 to 3000 on 2024-05-01 (12 months)
+Target growth rate 1.100 (achieved 1.096 historically)
+Current views per month 10000, per video 2307, CPM $4.00/1000
+Yearly subs: [3000.0, 9415.29, 29549.2, 92738.04]
+Yearly ad revenue: [40.0, 125.54, 393.99, 1236.51]
+Yearly brand revenue: [0.0, 0.0, 0.0, 1000.0]
+Yearly other revenue: [8000.0, 8000.0, 0.0, 0.0]
+Yearly total revenue: [8040.0, 8125.54, 393.99, 2236.51]
+Monthly expenditure: 5000
+Burn needed: 20438.2626221
+Time at other job: 18 months, 1.500 years
+Time needed for profitability: 38 months, 3.167 years
+
+If you are new to the concept of being a full time YouTuber, I highly suggest
+checking this out to get the lay of the land:
+
+https://moretothat.com/the-arc-of-the-practical-creator/
+
+You'll note that the calculations allow you to incorporate the impact of a
+current day job, and keep that job for a certain number of months or until a
+subscriber threshold is met. The calculations also allow you to incorporate
+brand deals along with ad revenue.
+
+You can check out (an approximation of) my channel in drwaku.1.
+
+To do calculations for your own channel, simply copy example.1 and start making
+your own file. Note that if you leave out --current_date, the current day is
+used. You can find more options and read help text with --help:
+
+$ python full-time.py --help
+usage: business-plan [-h] [--target_income TARGET_INCOME]
+                     [--growth_rate GROWTH_RATE] [--cpm CPM]
+                     [--initial_date INITIAL_DATE]
+                     [--initial_subs INITIAL_SUBS]
+                     [--current_date CURRENT_DATE]
+                     [--current_subs CURRENT_SUBS]
+                     [--current_monthly_views CURRENT_MONTHLY_VIEWS]
+                     [--videos_per_week VIDEOS_PER_WEEK]
+...
+optional arguments:
+  -h, --help            show this help message and exit
+  --target_income TARGET_INCOME
+                        Monthly expenses
+  --growth_rate GROWTH_RATE
+                        Monthly growth rate, a factor greater than 1
+  --cpm CPM             Monthly CPM, ad revenue per 1000 views
+...
+
+If you enjoy this script, star the repo and (if you like) submit pull requests
+with your own data :) P.S. You can use an approximation of actual salary, it
+doesn't affect exponential growth that much.
